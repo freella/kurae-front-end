@@ -1,5 +1,5 @@
 <script setup>
-import { useLoaderStore } from '@/store/loader'
+import { useLoaderStore } from '@/store/loader.store'
 
 const loader = useLoaderStore()
 </script>

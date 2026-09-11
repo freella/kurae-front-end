@@ -6,7 +6,7 @@ import axios, {
 } from 'axios'
 
 import { useAuthStore } from '@/store/auth.store'
-import { useLoaderStore } from '@/store/loader'
+import { useLoaderStore } from '@/store/loader.store'
 import { logger } from '@/services/logger'
 
 const api: AxiosInstance = axios.create({

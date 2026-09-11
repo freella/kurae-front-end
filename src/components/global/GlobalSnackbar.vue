@@ -1,5 +1,5 @@
 <script setup>
-import { useNotificationStore } from '@/store/notification'
+import { useNotificationStore } from '@/store/notification.store'
 
 const notification = useNotificationStore()
 </script>

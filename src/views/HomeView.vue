@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import LandingPage from '../components/LandingPage.vue'
+import Hero from '@/components/landing/Hero.vue';
 </script>
 
 <template>
   <main>
-    <LandingPage />
+    <Hero />
   </main>
 </template>
