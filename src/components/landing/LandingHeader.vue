@@ -9,6 +9,8 @@ import { LANDING_CONTENT } from '@/config/landing.config'
     <nav class="landing-nav">
       <a href="#inicio">Início</a>
       <a href="#sobre">Sobre</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#tecnologias">Tecnologias</a>
       <a href="#beneficios">Benefícios</a>
       <a href="#faq">FAQ</a>
       <a href="#contato">Contato</a>
@@ -57,9 +59,9 @@ import { LANDING_CONTENT } from '@/config/landing.config'
 
   .landing-nav {
     width: 100%;
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
-    gap: 12px;
+    gap: 8px 16px;
   }
 }
 </style>
