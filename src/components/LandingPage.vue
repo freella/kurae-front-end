@@ -5,6 +5,8 @@ import pineappleImage from '@/assets/pinaple.webp'
 import LandingHeader from './landing/LandingHeader.vue'
 import LandingHero from './landing/LandingHero.vue'
 import LandingAbout from './landing/LandingAbout.vue'
+import ProjectsSection from './landing/ProjectsSection.vue'
+import TechStack from './landing/TechStack.vue'
 import LandingFeatures from './landing/LandingFeatures.vue'
 import LandingFaq from './landing/LandingFaq.vue'
 import LandingContact from './landing/ContactForm.vue'
@@ -18,6 +20,8 @@ import LandingFooter from './landing/LandingFooter.vue'
     <main>
       <LandingHero :image="pineappleImage" />
       <LandingAbout />
+      <ProjectsSection />
+      <TechStack />
       <LandingFeatures />
       <LandingFaq />
       <LandingContact />
