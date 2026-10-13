@@ -74,6 +74,20 @@ A arquitetura do projeto foi pensada para manter o código organizado e facilita
 
 > 💡 **Observação:** Mantenha o código modular e crie novas pastas conforme necessário para funcionalidades adicionais.
 
+## Seção de projetos
+
+A landing page inclui um carrossel de projetos em `src/components/landing/ProjectsSection.vue`.
+Os cards, modal e motivo SVG ficam em `src/components/projects/`; os dados e tipos estão em
+`src/data/projects.ts`.
+
+Para adicionar ou editar um projeto, atualize o array `projects` com um `slug` único, uma cor de
+acento, tecnologias, seções de conteúdo e destaques. Quando houver uma imagem, informe seu caminho
+em `cover`.
+
+As fontes DM Sans e Fraunces são carregadas pelo `index.html`. O carrossel usa scroll horizontal
+nativo e controles responsivos; o modal fecha com Escape, clique fora ou botão de fechar, mantém o
+foco acessível e bloqueia o scroll da página enquanto está aberto.
+
 ### Lembrete Importante
 
 Antes de enviar qualquer alteração ou criar um pull request, **sempre execute uma compilação completa** para verificar se não há erros de compilação/typagem no código:
