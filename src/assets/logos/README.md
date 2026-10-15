@@ -6,6 +6,7 @@ so Vite can bundle them when imported by application components.
 | File | Technology | Source | License |
 | --- | --- | --- | --- |
 | `backend/django-rest-framework.svg` | Django REST Framework | [Devicon](https://github.com/devicons/devicon/tree/master/icons/djangorest) | MIT |
+| `backend/nodejs.svg` | Node.js | [Devicon](https://github.com/devicons/devicon/tree/master/icons/nodejs) | MIT |
 | `backend/python.svg` | Python | [Devicon](https://github.com/devicons/devicon/tree/master/icons/python) | MIT |
 | `backend/redis.svg` | Redis | [Devicon](https://github.com/devicons/devicon/tree/master/icons/redis) | MIT |
 | `banco/postgresql.svg` | PostgreSQL | [Devicon](https://github.com/devicons/devicon/tree/master/icons/postgresql) | MIT |

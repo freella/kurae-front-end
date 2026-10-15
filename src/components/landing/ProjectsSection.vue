@@ -182,7 +182,7 @@ onUnmounted(() => resizeObserver?.disconnect())
 .projects-section {
   width: calc(100% + 48px);
   margin: 0 -24px;
-  padding: 96px 0;
+  padding: 72px 0;
 }
 
 .projects-header {
@@ -190,7 +190,7 @@ onUnmounted(() => resizeObserver?.disconnect())
   align-items: flex-end;
   justify-content: space-between;
   gap: 24px;
-  margin-bottom: 48px;
+  margin-bottom: 36px;
   padding: 0 clamp(24px, 5vw, 80px);
 }
 
@@ -320,7 +320,7 @@ onUnmounted(() => resizeObserver?.disconnect())
   .projects-section {
     width: calc(100% + 32px);
     margin-inline: -16px;
-    padding: 72px 0;
+    padding: 56px 0;
   }
 
   .projects-header {

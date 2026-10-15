@@ -15,7 +15,7 @@
       />
       <GoldenSpiral
         class="card-spiral"
-        :size="320"
+        :size="160"
         :color="project.accentColor"
         :opacity="0.15"
       />
@@ -60,8 +60,8 @@ defineEmits<{
 
 <style scoped>
 .project-card-item {
-  width: clamp(280px, 32vw, 360px);
-  aspect-ratio: 1;
+  width: 156px;
+  height: 164px;
   flex: 0 0 auto;
   scroll-snap-align: start;
 }
@@ -122,7 +122,7 @@ defineEmits<{
   display: flex;
   height: 100%;
   flex-direction: column;
-  padding: 28px;
+  padding: 14px 12px;
 }
 
 .card-top {
@@ -133,65 +133,72 @@ defineEmits<{
 }
 
 .card-tag {
-  padding: 4px 10px;
+  padding: 3px 6px;
   border-radius: 2px;
   background: color-mix(in srgb, var(--accent) 12%, transparent);
   color: var(--accent);
-  font-size: 11px;
+  font-size: 9px;
   font-weight: 500;
   letter-spacing: 0.06em;
 }
 
 .card-year {
   color: rgba(255, 255, 255, 0.3);
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .card-body {
   margin-top: auto;
-  margin-bottom: 28px;
+  margin-bottom: 12px;
 }
 
 .card-name {
-  margin: 0 0 12px;
+  margin: 0 0 6px;
   color: #fff;
   font-family: 'Fraunces', Georgia, serif;
-  font-size: 32px;
+  font-size: 22px;
   font-weight: 600;
   line-height: 1.1;
 }
 
 .card-desc {
-  max-width: 240px;
+  display: -webkit-box;
+  overflow: hidden;
   margin: 0;
   color: rgba(255, 255, 255, 0.55);
-  font-size: 14px;
-  line-height: 1.55;
+  font-size: 11px;
+  line-height: 1.4;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
 
 .card-bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 6px;
 }
 
 .card-stack {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  min-width: 0;
+  overflow: hidden;
+  gap: 4px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .card-stack li {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   color: rgba(255, 255, 255, 0.4);
-  font-size: 11px;
+  font-size: 9px;
 }
 
 .card-stack li + li::before {
-  margin-right: 8px;
+  margin-right: 4px;
   color: rgba(255, 255, 255, 0.2);
   content: '·';
 }
@@ -199,7 +206,7 @@ defineEmits<{
 .card-cta {
   flex-shrink: 0;
   color: var(--accent);
-  font-size: 12px;
+  font-size: 10px;
   opacity: 0;
   transition: opacity 0.2s ease;
 }
@@ -227,11 +234,7 @@ defineEmits<{
 
 @media (max-width: 480px) {
   .card-inner {
-    padding: 22px;
-  }
-
-  .card-name {
-    font-size: 28px;
+    padding: 14px 12px;
   }
 }
 

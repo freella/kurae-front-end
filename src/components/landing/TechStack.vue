@@ -4,6 +4,7 @@ import dockerLogo from '@/assets/logos/infra/docker.svg'
 import gitLogo from '@/assets/logos/infra/git.svg'
 import githubLogo from '@/assets/logos/infra/github-devicon.svg'
 import pytestLogo from '@/assets/logos/infra/pytest.svg'
+import nodeLogo from '@/assets/logos/backend/nodejs.svg'
 import pythonLogo from '@/assets/logos/backend/python.svg'
 import djangoRestLogo from '@/assets/logos/backend/django-rest-framework.svg'
 import redisLogo from '@/assets/logos/backend/redis.svg'
@@ -18,6 +19,7 @@ const technologies = [
   { name: 'Vue.js', category: 'Frontend', logo: vueLogo },
   { name: 'Tailwind CSS', category: 'Frontend', logo: tailwindLogo },
   { name: 'Python', category: 'Backend', logo: pythonLogo },
+  { name: 'Node.js', category: 'Backend', logo: nodeLogo },
   { name: 'Django REST Framework', category: 'Backend', logo: djangoRestLogo },
   { name: 'Redis', category: 'Backend', logo: redisLogo },
   { name: 'PostgreSQL', category: 'Banco de dados', logo: postgresqlLogo },
