@@ -1,202 +1,96 @@
+<script setup lang="ts">
+interface TeamMember {
+  name: string;
+  role: string;
+  description: string;
+}
+
+// Dados extraídos do documento institucional da Kurae Solutions
+const team: TeamMember[] = [
+  { 
+    name: 'Carlos Lemos', 
+    role: 'Tecnologia, Arquitetura & Liderança Técnica', 
+    description: 'Arquitetura de aplicações, desenvolvimento Full Stack, IA e automação.' 
+  },
+  { 
+    name: 'Bernardo Santos', 
+    role: 'Desenvolvimento Full Stack, Automação & Segurança', 
+    description: 'Desenvolvimento web e mobile, automação e segurança da informação.' 
+  },
+  { 
+    name: 'Pedro Vinícius', 
+    role: 'Dados, IA & Desenvolvimento', 
+    description: 'Desenvolvimento Full Stack, análise de dados e Machine Learning.' 
+  },
+  { 
+    name: 'Cauê Tamiarana', 
+    role: 'Desenvolvimento Full Stack & Integrações', 
+    description: 'Aplicações web, APIs, dashboards e integração de sistemas.' 
+  },
+  { 
+    name: 'João Gabriel Costa Rodrigues', 
+    role: 'Desenvolvimento Web/front-end & IA', 
+    description: 'Desenvolvimento web, infraestrutura de TI, IA e redes.' 
+  },
+  { 
+    name: 'Paulo Vitor Rodrigues', 
+    role: 'Design, UX & Marketing', 
+    description: 'Web Design, design de interfaces, UX e Growth Marketing.' 
+  },
+  { 
+    name: 'Yasmin Rodrigues', 
+    role: 'Product Manager Produto & Negócios', 
+    description: 'Identificação de problemas, validação de ideias, estratégia e produto.' 
+  }
+];
+</script>
+
 <template>
-  <section id="sobre" class="about-section">
-    <div class="about-inner">
-      <div class="about-text">
-        <span class="section-label">Sobre nós</span>
-        <h2>Criado para quem quer resultados reais</h2>
-        <p>
-          Nascemos da necessidade de simplificar a presença digital de negócios e profissionais.
-          Nossa missão é oferecer uma solução acessível, bonita e fácil de usar — sem abrir mão
-          da qualidade.
+  <section id="sobre" class="py-24 bg-slate-950 text-slate-300 border-t border-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Cabeçalho Institucional -->
+      <div class="max-w-3xl mx-auto text-center mb-20">
+        <h2 class="text-emerald-400 font-semibold tracking-wide uppercase text-sm mb-3">
+          Sobre a Kurae Solutions
+        </h2>
+        <p class="text-3xl sm:text-4xl font-bold text-white mb-6 leading-tight">
+          Problemas reais antes da tecnologia.
         </p>
-        <p>
-          Acreditamos que todo projeto merece uma boa vitrine. Por isso, desenvolvemos uma
-          plataforma que une design moderno com tecnologia robusta, para que você possa focar
-          no que realmente importa: o seu negócio.
+        <p class="text-lg text-slate-400 mb-6">
+          A Kurae existe para transformar desafios de pessoas e empresas em soluções digitais úteis e acessíveis. O Vitalis é o nosso principal laboratório de inovação: um produto próprio nascido da compreensão profunda das dores operacionais de um contexto hospitalar real.
         </p>
-        <div class="about-stats">
-          <div class="stat">
-            <strong>+500</strong>
-            <span>Projetos entregues</span>
-          </div>
-          <div class="stat">
-            <strong>98%</strong>
-            <span>Clientes satisfeitos</span>
-          </div>
-          <div class="stat">
-            <strong>24h</strong>
-            <span>Tempo de resposta</span>
+        <div class="inline-flex items-center px-4 py-2 rounded-lg bg-slate-900 border border-slate-800 text-sm font-medium text-slate-300">
+          Missão: Simplificar processos e melhorar experiências.
+        </div>
+      </div>
+
+      <!-- Grid da Equipe Multidisciplinar -->
+      <div>
+        <div class="text-center mb-12">
+          <h3 class="text-2xl font-bold text-white">Nossa Equipe</h3>
+          <p class="text-slate-400 mt-2">Profissionais multidisciplinares por trás da plataforma Vitalis.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <!-- Renderização dinâmica da equipe usando v-for -->
+          <div 
+            v-for="(member, index) in team" 
+            :key="index"
+            class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-emerald-500/30 transition-all hover:-translate-y-1"
+          >
+            <div class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center mb-4 text-emerald-400 font-bold text-lg border border-slate-700">
+              {{ member.name.charAt(0) }}
+            </div>
+            <h4 class="text-white font-bold mb-1">{{ member.name }}</h4>
+            <p class="text-xs text-emerald-400 font-medium mb-3 h-8">{{ member.role }}</p>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              {{ member.description }}
+            </p>
           </div>
         </div>
       </div>
 
-<div class="about-visuals">
-        <div class="about-highlight">
-          <div class="highlight-card">
-            <v-icon class="highlight-icon" icon="mdi-target" />
-            <h3>Foco no essencial</h3>
-            <p>Sem complexidade desnecessária. Entregamos o que realmente gera resultado.</p>
-          </div>
-          <div class="highlight-card">
-            <v-icon class="highlight-icon" icon="mdi-lightbulb-outline" />
-            <h3>Inovação constante</h3>
-            <p>Sempre evoluindo para acompanhar as tendências e as necessidades do mercado.</p>
-          </div>
-        </div>
-
-        <div class="meme-container">
-          <img 
-            src="@/assets/meme.webp" 
-            alt="Meme do projeto" 
-            class="meme-image"
-            loading="lazy"
-          />
-        </div>
-      </div>
     </div>
   </section>
 </template>
-
-<style scoped>
-.about-section {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 72px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
-}
-
-.about-inner {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 56px;
-  align-items: center;
-}
-
-.section-label {
-  display: inline-block;
-  margin-bottom: 12px;
-  color: #93c5fd;
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-.about-text h2 {
-  margin: 0 0 20px;
-  font-size: 2rem;
-  line-height: 1.2;
-}
-
-.about-text p {
-  color: #cbd5e1;
-  line-height: 1.7;
-  margin-bottom: 16px;
-}
-
-.about-stats {
-  display: flex;
-  gap: 32px;
-  margin-top: 32px;
-  flex-wrap: wrap;
-}
-
-.stat {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.stat strong {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #93c5fd;
-}
-
-.stat span {
-  font-size: 0.85rem;
-  color: #94a3b8;
-}
-
-.about-highlight {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.about-visuals {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-
-.meme-container {
-  overflow: hidden;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-}
-
-.meme-container:hover {
-  transform: translateY(-5px);
-}
-
-.meme-image {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}
-
-.highlight-card {
-  padding: 24px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.highlight-icon {
-  font-size: 1.75rem !important;
-  display: block;
-  margin-bottom: 12px;
-  color: #93c5fd !important;
-}
-
-.highlight-card h3 {
-  margin: 0 0 8px;
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-.highlight-card p {
-  margin: 0;
-  color: #cbd5e1;
-  font-size: 0.92rem;
-  line-height: 1.5;
-}
-
-@media (max-width: 1024px) {
-  .about-inner {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  
-  .about-highlight {
-    flex-direction: row;
-    gap: 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .about-highlight {
-    flex-direction: column;
-  }
-  
-  .about-stats {
-    gap: 20px;
-  }
-
-  .about-text h2 {
-    font-size: 1.6rem;
-  }
-}
-</style>
