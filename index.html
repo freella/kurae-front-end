@@ -4,10 +4,55 @@
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vite App</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,400&display=swap" rel="stylesheet">
+
+    <!-- SEO base (sobrescrito por rota via src/composables/useSeo.ts) -->
+    <title>Kurae</title>
+    <meta name="description" content="Kurae – plataforma de gestão de saúde e bem-estar.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0f766e">
+    <link rel="canonical" href="%VITE_SITE_URL%/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Kurae">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:url" content="%VITE_SITE_URL%/">
+    <meta property="og:title" content="Kurae">
+    <meta property="og:description" content="Kurae – plataforma de gestão de saúde e bem-estar.">
+    <meta property="og:image" content="%VITE_SITE_URL%/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Kurae">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kurae">
+    <meta name="twitter:description" content="Kurae – plataforma de gestão de saúde e bem-estar.">
+    <meta name="twitter:image" content="%VITE_SITE_URL%/og-image.jpg">
+
+    <!-- JSON-LD: Organization + WebSite -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "%VITE_SITE_URL%/#organization",
+            "name": "Kurae",
+            "url": "%VITE_SITE_URL%/",
+            "logo": "%VITE_SITE_URL%/og-image.jpg"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "%VITE_SITE_URL%/#website",
+            "url": "%VITE_SITE_URL%/",
+            "name": "Kurae",
+            "inLanguage": "pt-BR",
+            "publisher": { "@id": "%VITE_SITE_URL%/#organization" }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="app"></div>
