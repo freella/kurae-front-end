@@ -4,4 +4,4 @@ Disallow: /dashboard
 Disallow: /login
 Disallow: /register
 
-Sitemap: https://SEU-DOMINIO.com.br/sitemap.xml
+Sitemap: https://KURAE.DEV.BR/sitemap.xml
