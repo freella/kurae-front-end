@@ -21,9 +21,11 @@
       <GlobalLoader />
     </v-app>    
   </template>
+  <Analytics />
 </template>
 
 <script setup lang="ts">
+import { Analytics } from '@vercel/analytics/vue'
 import GlobalSnackbar from '@/components/global/GlobalSnackbar.vue'
 import GlobalLoader from '@/components/global/GlobalLoader.vue'
 import { useErrorStore } from '@/store/error.store'

@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import { track } from '@vercel/analytics'
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
 const handlePrimaryAction = () => {
+  track('vitalis_cta_click')
   router.push('/contato');
 };
 </script>
