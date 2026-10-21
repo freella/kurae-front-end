@@ -40,7 +40,6 @@ Thumbs.db
 *.log
 
 # Lock files (if not committed)
-package-lock.json
 npm-shrinkwrap.json
 
 # Dependency caches
