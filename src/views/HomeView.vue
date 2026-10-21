@@ -4,6 +4,7 @@ import LandingAbout from '@/components/landing/LandingAbout.vue';
 import ProjectsSection from '@/components/landing/ProjectsSection.vue';
 import TechStack from '@/components/landing/TechStack.vue';
 import ApproachSteps from '@/components/landing/ApproachSteps.vue';
+import ContactForm from '@/components/landing/ContactForm.vue';
 </script>
 
 <template>
@@ -13,5 +14,6 @@ import ApproachSteps from '@/components/landing/ApproachSteps.vue';
     <ProjectsSection />
     <TechStack />
     <ApproachSteps />
+    <ContactForm />
   </main>
 </template>
