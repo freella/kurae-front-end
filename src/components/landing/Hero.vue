@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
-
-const router = useRouter();
+import { track } from '@vercel/analytics'
 
 const handlePrimaryAction = () => {
-  router.push('/contato');
+  try {
+    track('vitalis_cta_click')
+  } catch {
+    // A navegação até o formulário não depende da medição.
+  }
 };
 </script>
 
@@ -27,12 +29,13 @@ const handlePrimaryAction = () => {
           </p>
           
           <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-            <button 
+            <a
+              href="#contato"
               @click="handlePrimaryAction"
-              class="px-8 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold transition-all shadow-lg shadow-emerald-600/30 cursor-pointer"
+              class="px-8 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold transition-all shadow-lg shadow-emerald-600/30 cursor-pointer text-center"
             >
               Experimente o Vitalis
-            </button>
+            </a>
             <a 
               href="#sobre"
               class="px-8 py-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold transition-all border border-slate-700 text-center"

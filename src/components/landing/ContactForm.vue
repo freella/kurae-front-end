@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { track } from '@vercel/analytics'
 import { leadService } from '@/services/lead.service'
 import { validateLeadForm } from '@/utils/validation'
 
@@ -32,6 +33,11 @@ async function handleSubmit() {
     successMessage.value = 'Lead enviado com sucesso!'
     name.value = ''
     email.value = ''
+    try {
+      track('contact_form_submitted')
+    } catch {
+      // Uma falha na medição não altera o resultado do envio.
+    }
   } catch {
     errorMessage.value = 'Não foi possível enviar seus dados. Tente novamente.'
   } finally {
