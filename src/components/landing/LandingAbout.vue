@@ -5,7 +5,6 @@ interface TeamMember {
   description: string;
 }
 
-// Dados extraídos do documento institucional da Kurae Solutions
 const team: TeamMember[] = [
   { 
     name: 'Carlos Lemos', 
@@ -28,7 +27,7 @@ const team: TeamMember[] = [
     description: 'Aplicações web, APIs, dashboards e integração de sistemas.' 
   },
   { 
-    name: 'João Gabriel Costa Rodrigues', 
+    name: 'João Gabriel Rodrigues', 
     role: 'Desenvolvimento Web/front-end & IA', 
     description: 'Desenvolvimento web, infraestrutura de TI, IA e redes.' 
   },
@@ -39,7 +38,7 @@ const team: TeamMember[] = [
   },
   { 
     name: 'Yasmin Rodrigues', 
-    role: 'Product Manager Produto & Negócios', 
+    role: 'Product Manager, Produto & Negócios', 
     description: 'Identificação de problemas, validação de ideias, estratégia e produto.' 
   }
 ];
@@ -49,23 +48,21 @@ const team: TeamMember[] = [
   <section id="sobre" class="py-24 bg-slate-950 text-slate-300 border-t border-slate-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- Cabeçalho Institucional -->
       <div class="max-w-3xl mx-auto text-center mb-20">
         <h2 class="text-emerald-400 font-semibold tracking-wide uppercase text-sm mb-3">
           Sobre a Kurae Solutions
         </h2>
         <p class="text-3xl sm:text-4xl font-bold text-white mb-6 leading-tight">
-          Problemas reais antes da tecnologia.
+          Modernizar a operação da saúde por meio de tecnologia inteligente.
         </p>
         <p class="text-lg text-slate-400 mb-6">
-          A Kurae existe para transformar desafios de pessoas e empresas em soluções digitais úteis e acessíveis. O Vitalis é o nosso principal laboratório de inovação: um produto próprio nascido da compreensão profunda das dores operacionais de um contexto hospitalar real.
+          A Kurae Solutions é uma startup de tecnologia especializada em transformar e automatizar processos complexos da área da saúde em experiências digitais mais eficientes e integradas, reduzindo burocracias, tarefas manuais e retrabalho.
         </p>
         <div class="inline-flex items-center px-4 py-2 rounded-lg bg-slate-900 border border-slate-800 text-sm font-medium text-slate-300">
           Missão: Simplificar processos e melhorar experiências.
         </div>
       </div>
 
-      <!-- Grid da Equipe Multidisciplinar -->
       <div>
         <div class="text-center mb-12">
           <h3 class="text-2xl font-bold text-white">Nossa Equipe</h3>
@@ -73,7 +70,7 @@ const team: TeamMember[] = [
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          <!-- Renderização dinâmica da equipe usando v-for -->
+
           <div 
             v-for="(member, index) in team" 
             :key="index"

@@ -89,7 +89,7 @@ onUnmounted(() => {
 
             <div class="md:absolute md:left-1/2 md:transform md:-translate-x-1/2 z-10 flex items-center justify-center w-16 h-16 rounded-full bg-slate-950 border-4 border-slate-900 shadow-xl my-6 md:my-0">
               <div class="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-400">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg aria-hidden="true" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" :d="step.icon" />
                 </svg>
               </div>
