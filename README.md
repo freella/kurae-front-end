@@ -42,6 +42,9 @@ VITE_API_BASE_URL=https://api.seudominio.com
 VITE_APP_NAME=FreelancerSystem
 ```
 
+Valores com prefixo `VITE_` são incorporados ao bundle do navegador. Use-os apenas para
+configurações públicas, nunca para tokens, senhas ou chaves privadas.
+
 ## 📦 Instalação e Execução
 
 ### Instalar dependências
@@ -97,3 +100,8 @@ npm run build
 ```
 
 Esse passo ajudará a evitar que código quebrado seja mesclado no repositório.
+
+## Licença e segurança
+
+Este repositório é público para viabilizar o deploy da Kurae. Consulte [LICENSE](LICENSE),
+[SECURITY.md](SECURITY.md) e o [plano de segurança e visibilidade](docs/seguranca-e-visibilidade.md).
