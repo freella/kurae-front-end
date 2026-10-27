@@ -39,13 +39,11 @@ export const projects: Project[] = [
       },
       {
         title: 'Modelo de negócio',
-        body: 'Licenciamento de software para prefeituras e órgãos públicos. Break-even no primeiro cliente, margem operacional de 85–92%. O mesmo código-base pode ser adaptado para UBSs, secretarias de educação e centros de assistência social.',
+        body: 'Licenciamento de software para prefeituras e órgãos públicos. O mesmo código-base pode ser adaptado para UBSs, secretarias de educação e centros de assistência social.',
       },
     ],
     results: [
       'Piloto em andamento em Belém (PA)',
-      'Margem operacional estimada: 85–92%',
-      'Break-even no 1º contrato',
       'Adaptável a qualquer serviço público de atendimento',
     ],
   },
