@@ -42,6 +42,10 @@ VITE_API_BASE_URL=https://api.seudominio.com
 VITE_APP_NAME=FreelancerSystem
 ```
 
+Variáveis com prefixo `VITE_` são incorporadas ao JavaScript entregue ao navegador. Use-as
+somente para configuração pública, como uma URL de API; nunca coloque tokens, senhas ou chaves
+privadas nelas. Mantenha arquivos `.env` locais fora do Git.
+
 ## 📦 Instalação e Execução
 
 ### Instalar dependências
@@ -95,5 +99,12 @@ Antes de enviar qualquer alteração ou criar um pull request, **sempre execute 
 ```sh
 npm run build
 ```
+
+## Licença, segurança e visibilidade
+
+Este repositório é público para permitir o deploy. Código, histórico, branches, pull requests e
+logs de CI podem ser vistos por qualquer pessoa. Não versione credenciais, dados pessoais ou
+informações comerciais internas. Consulte [LICENSE](LICENSE), [SECURITY.md](SECURITY.md) e o
+[plano de segurança e visibilidade](docs/seguranca-e-visibilidade.md).
 
 Esse passo ajudará a evitar que código quebrado seja mesclado no repositório.
