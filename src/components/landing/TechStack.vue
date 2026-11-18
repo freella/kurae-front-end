@@ -32,13 +32,28 @@ const technologies = [
 </script>
 
 <template>
-  <section id="tecnologias" class="tech-stack" aria-labelledby="tech-stack-title">
-    <div class="section-header">
-      <span class="section-label">Tecnologias</span>
-      <h2 id="tech-stack-title">Ferramentas que usamos</h2>
-      <p>Uma seleção das tecnologias presentes no nosso stack.</p>
+  <section
+    id="tecnologias"
+    class="mx-auto max-w-7xl border-t border-navy/30 px-4 py-20 sm:px-6 lg:px-8"
+    aria-labelledby="tech-stack-title"
+  >
+    <div class="mb-8">
+      <span
+        class="mb-3 inline-block font-sans text-sm font-semibold tracking-wide text-cyan-vibrant uppercase"
+      >
+        Tecnologias
+      </span>
+      <h2
+        id="tech-stack-title"
+        class="mb-3 font-display text-2xl font-bold text-ice sm:text-4xl"
+      >
+        Ferramentas que usamos
+      </h2>
+      <p class="max-w-[580px] font-sans leading-relaxed text-ice/75">
+        Uma seleção das tecnologias presentes no nosso stack.
+      </p>
       <button
-        class="motion-toggle"
+        class="motion-toggle mt-4 cursor-pointer rounded-lg border border-navy bg-graphite/90 px-3.5 py-2 font-sans text-sm font-medium text-ice transition-colors hover:border-sky-electric hover:text-cyan-vibrant focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-cyan-neon"
         type="button"
         :aria-pressed="isPaused"
         @click="isPaused = !isPaused"
@@ -55,9 +70,13 @@ const technologies = [
     >
       <div class="tech-track">
         <ul class="tech-group">
-          <li v-for="technology in technologies" :key="technology.name" class="tech-card">
+          <li
+            v-for="technology in technologies"
+            :key="technology.name"
+            class="tech-card flex min-h-[164px] w-[156px] shrink-0 flex-col items-center justify-center gap-3 rounded-2xl border border-navy/50 bg-graphite/90 px-3 py-5 text-center transition-all hover:-translate-y-0.5 hover:border-cyan-vibrant/50 hover:bg-petrol/40"
+          >
             <img
-              class="tech-logo"
+              class="tech-logo h-14 w-14 object-contain"
               :class="{ 'tech-logo--github': technology.name === 'GitHub' }"
               :src="technology.logo"
               alt=""
@@ -67,14 +86,25 @@ const technologies = [
               loading="lazy"
               decoding="async"
             />
-            <h3>{{ technology.name }}</h3>
-            <span class="tech-category">{{ technology.category }}</span>
+            <h3
+              class="max-w-full font-sans text-[0.95rem] font-semibold leading-snug break-words text-ice"
+            >
+              {{ technology.name }}
+            </h3>
+            <span class="font-sans text-xs leading-tight text-sky-electric/85">
+              {{ technology.category }}
+            </span>
           </li>
         </ul>
+
         <ul class="tech-group tech-group--duplicate" aria-hidden="true" inert>
-          <li v-for="technology in technologies" :key="technology.name" class="tech-card">
+          <li
+            v-for="technology in technologies"
+            :key="technology.name"
+            class="tech-card flex min-h-[164px] w-[156px] shrink-0 flex-col items-center justify-center gap-3 rounded-2xl border border-navy/50 bg-graphite/90 px-3 py-5 text-center transition-all hover:-translate-y-0.5 hover:border-cyan-vibrant/50 hover:bg-petrol/40"
+          >
             <img
-              class="tech-logo"
+              class="tech-logo h-14 w-14 object-contain"
               :class="{ 'tech-logo--github': technology.name === 'GitHub' }"
               :src="technology.logo"
               alt=""
@@ -83,8 +113,14 @@ const technologies = [
               loading="lazy"
               decoding="async"
             />
-            <h3>{{ technology.name }}</h3>
-            <span class="tech-category">{{ technology.category }}</span>
+            <h3
+              class="max-w-full font-sans text-[0.95rem] font-semibold leading-snug break-words text-ice"
+            >
+              {{ technology.name }}
+            </h3>
+            <span class="font-sans text-xs leading-tight text-sky-electric/85">
+              {{ technology.category }}
+            </span>
           </li>
         </ul>
       </div>
@@ -93,57 +129,6 @@ const technologies = [
 </template>
 
 <style scoped>
-.tech-stack {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 72px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
-}
-
-.section-header {
-  margin-bottom: 32px;
-}
-
-.section-label {
-  display: inline-block;
-  margin-bottom: 12px;
-  color: #93c5fd;
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-.section-header h2 {
-  margin-bottom: 12px;
-  font-size: 2rem;
-}
-
-.section-header p {
-  max-width: 580px;
-  color: #cbd5e1;
-  line-height: 1.6;
-}
-
-.motion-toggle {
-  margin-top: 16px;
-  padding: 8px 12px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.04);
-  color: #e2e8f0;
-  font: inherit;
-  font-size: 0.875rem;
-  cursor: pointer;
-}
-
-.motion-toggle:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.motion-toggle:focus-visible {
-  outline: 2px solid #93c5fd;
-  outline-offset: 3px;
-}
-
 .tech-carousel {
   overflow: hidden;
   -webkit-mask-image: linear-gradient(
@@ -153,7 +138,13 @@ const technologies = [
     #000 97%,
     transparent
   );
-  mask-image: linear-gradient(to right, transparent, #000 3%, #000 97%, transparent);
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 3%,
+    #000 97%,
+    transparent
+  );
 }
 
 .tech-track {
@@ -173,39 +164,11 @@ const technologies = [
   flex: 0 0 auto;
   gap: 16px;
   margin: 0;
-  padding: 0 16px 0 0;
+  padding: 4px 16px 4px 0;
   list-style: none;
 }
 
-.tech-card {
-  flex: 0 0 156px;
-  min-height: 164px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding: 20px 12px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.04);
-  text-align: center;
-  transition:
-    transform 180ms ease,
-    background-color 180ms ease,
-    border-color 180ms ease;
-}
-
-.tech-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(147, 197, 253, 0.3);
-  background: rgba(255, 255, 255, 0.07);
-}
-
 .tech-logo {
-  width: 56px;
-  height: 56px;
-  object-fit: contain;
   filter: grayscale(1);
   transition: filter 180ms ease;
 }
@@ -217,22 +180,6 @@ const technologies = [
 .tech-logo--github,
 .tech-card:hover .tech-logo--github {
   filter: brightness(0) invert(1);
-}
-
-.tech-card h3 {
-  max-width: 100%;
-  margin: 0;
-  color: #f8fafc;
-  font-size: 0.95rem;
-  font-weight: 600;
-  line-height: 1.35;
-  overflow-wrap: anywhere;
-}
-
-.tech-category {
-  color: #94a3b8;
-  font-size: 0.78rem;
-  line-height: 1.3;
 }
 
 @keyframes tech-scroll {
@@ -271,12 +218,6 @@ const technologies = [
   .tech-card,
   .tech-logo {
     transition: none;
-  }
-}
-
-@media (max-width: 480px) {
-  .section-header h2 {
-    font-size: 1.6rem;
   }
 }
 </style>

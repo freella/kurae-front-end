@@ -1,90 +1,3 @@
-<template>
-  <Teleport to="body">
-    <Transition name="modal">
-      <div
-        v-if="project"
-        class="modal-backdrop"
-        role="dialog"
-        aria-modal="true"
-        :aria-labelledby="`project-title-${project.slug}`"
-        @click.self="emit('close')"
-      >
-        <div
-          ref="panelRef"
-          class="modal-panel"
-          :style="{ '--accent': project.accentColor }"
-          @keydown="onPanelKeydown"
-        >
-          <GoldenSpiral
-            class="modal-spiral"
-            :size="500"
-            :color="project.accentColor"
-            :opacity="0.07"
-          />
-
-          <header class="modal-header">
-            <div class="modal-meta">
-              <span class="modal-tag">{{ project.tag }}</span>
-              <span class="modal-year">{{ project.year }}</span>
-            </div>
-            <button
-              ref="closeButton"
-              class="modal-close"
-              type="button"
-              aria-label="Fechar detalhes do projeto"
-              @click="emit('close')"
-            >
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                <path
-                  d="M15 5L5 15M5 5l10 10"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                />
-              </svg>
-            </button>
-          </header>
-
-          <h2 :id="`project-title-${project.slug}`" class="modal-name">{{ project.name }}</h2>
-          <p class="modal-short">{{ project.shortDesc }}</p>
-
-          <div class="modal-divider" aria-hidden="true" />
-
-          <div class="modal-sections">
-            <section
-              v-for="(section, index) in project.sections"
-              :key="section.title || index"
-              class="modal-section"
-            >
-              <h3 class="modal-section-title">{{ section.title }}</h3>
-              <p class="modal-section-body">{{ section.body }}</p>
-            </section>
-          </div>
-
-          <section v-if="project.results.length" class="modal-results">
-            <h3 class="modal-results-title">Destaques</h3>
-            <ul class="modal-results-list">
-              <li v-for="result in project.results" :key="result">
-                <span class="result-dot" aria-hidden="true" />
-                {{ result }}
-              </li>
-            </ul>
-          </section>
-
-          <footer class="modal-footer">
-            <div class="modal-stack">
-              <span class="modal-stack-label">Stack</span>
-              <ul class="modal-stack-list" aria-label="Tecnologias utilizadas">
-                <li v-for="tech in project.stack" :key="tech">{{ tech }}</li>
-              </ul>
-            </div>
-          </footer>
-        </div>
-      </div>
-    </Transition>
-  </Teleport>
-</template>
-
 <script setup lang="ts">
 import { nextTick, onUnmounted, ref, watch } from 'vue'
 import type { Project } from '@/data/projects'
@@ -157,230 +70,158 @@ onUnmounted(() => {
 })
 </script>
 
-<style scoped>
-.modal-backdrop {
-  position: fixed;
-  z-index: 1000;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding: 0;
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  inset: 0;
-}
+<template>
+  <Teleport to="body">
+    <Transition name="modal">
+      <div
+        v-if="project"
+        class="fixed inset-0 z-[1000] flex items-end justify-center bg-deep-blue/80 p-0 backdrop-blur-md md:items-center md:p-6"
+        role="dialog"
+        aria-modal="true"
+        :aria-labelledby="`project-title-${project.slug}`"
+        @click.self="emit('close')"
+      >
+        <div
+          ref="panelRef"
+          class="modal-panel relative max-h-[92vh] w-full max-w-[680px] overflow-x-hidden overflow-y-auto rounded-t-2xl border border-b-0 border-navy/60 bg-graphite px-5.5 pt-7 pb-9 font-sans text-ice shadow-2xl sm:px-8 sm:pt-9 sm:pb-12 md:rounded-2xl md:border-b"
+          :style="{ '--accent': project.accentColor || 'var(--color-cyan-vibrant)' }"
+          @keydown="onPanelKeydown"
+        >
+          <GoldenSpiral
+            class="pointer-events-none absolute -top-15 -right-15 z-0"
+            :size="500"
+            :color="project.accentColor || '#16defd'"
+            :opacity="0.08"
+          />
 
+          <header class="relative z-1 mb-7 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <span
+                class="modal-tag rounded px-2.5 py-1 text-[11px] font-semibold tracking-wider uppercase"
+              >
+                {{ project.tag }}
+              </span>
+              <span class="text-xs text-ice/50">{{ project.year }}</span>
+            </div>
+            <button
+              ref="closeButton"
+              class="modal-close flex h-9 w-9 cursor-pointer items-center justify-center rounded-lg border border-navy/50 bg-petrol/40 text-ice/75 transition-colors hover:border-sky-electric hover:bg-petrol hover:text-cyan-vibrant focus-visible:outline-2 focus-visible:outline-offset-2"
+              type="button"
+              aria-label="Fechar detalhes do projeto"
+              @click="emit('close')"
+            >
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path
+                  d="M15 5L5 15M5 5l10 10"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
+          </header>
+
+          <h2
+            :id="`project-title-${project.slug}`"
+            class="relative z-1 mb-3 font-display text-4xl font-bold leading-[1.05] text-ice sm:text-5xl"
+          >
+            {{ project.name }}
+          </h2>
+          <p class="relative z-1 max-w-[480px] text-base leading-normal text-ice/70">
+            {{ project.shortDesc }}
+          </p>
+
+          <div class="relative z-1 my-8 h-px bg-navy/40" aria-hidden="true" />
+
+          <div class="relative z-1 mb-9 flex flex-col gap-7">
+            <section
+              v-for="(section, index) in project.sections"
+              :key="section.title || index"
+            >
+              <h3 class="modal-accent-text mb-2.5 text-[11px] font-semibold tracking-wider uppercase">
+                {{ section.title }}
+              </h3>
+              <p class="max-w-[560px] text-[15px] leading-[1.65] text-ice/80">
+                {{ section.body }}
+              </p>
+            </section>
+          </div>
+
+          <section
+            v-if="project.results.length"
+            class="modal-results relative z-1 mb-9 rounded-r-xl border border-navy/40 bg-deep-blue/60 px-6 py-5"
+          >
+            <h3 class="mb-3.5 text-[11px] font-semibold tracking-wider text-ice/60 uppercase">
+              Destaques
+            </h3>
+            <ul class="flex flex-col gap-2.5 p-0 list-none">
+              <li
+                v-for="result in project.results"
+                :key="result"
+                class="flex items-baseline gap-2.5 text-sm leading-snug text-ice/85"
+              >
+                <span
+                  class="result-dot relative -top-px h-1.5 w-1.5 shrink-0 rounded-full"
+                  aria-hidden="true"
+                />
+                {{ result }}
+              </li>
+            </ul>
+          </section>
+
+          <footer class="relative z-1 border-t border-navy/40 pt-6">
+            <div class="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+              <span
+                class="shrink-0 text-[11px] font-semibold tracking-wider text-ice/55 uppercase"
+              >
+                Stack
+              </span>
+              <ul
+                class="flex flex-wrap gap-2 p-0 list-none"
+                aria-label="Tecnologias utilizadas"
+              >
+                <li
+                  v-for="tech in project.stack"
+                  :key="tech"
+                  class="rounded border border-navy/50 bg-petrol/40 px-2.5 py-1 text-xs text-ice/80"
+                >
+                  {{ tech }}
+                </li>
+              </ul>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </Transition>
+  </Teleport>
+</template>
+
+<style scoped>
 .modal-panel {
-  --accent: #00c896;
-  position: relative;
-  width: 100%;
-  max-width: 680px;
-  max-height: 92vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-  padding: 36px 32px 48px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 0;
-  border-radius: 4px 4px 0 0;
-  background: #0f0f0f;
-  scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+  --accent: var(--color-cyan-vibrant);
+  scrollbar-color: rgba(32, 95, 190, 0.4) transparent;
   scrollbar-width: thin;
 }
 
-.modal-spiral {
-  position: absolute;
-  z-index: 0;
-  top: -60px;
-  right: -60px;
-  pointer-events: none;
-}
-
-.modal-panel > *:not(.modal-spiral) {
-  position: relative;
-  z-index: 1;
-}
-
-.modal-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 28px;
-}
-
-.modal-meta {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
 .modal-tag {
-  padding: 4px 10px;
-  border-radius: 2px;
-  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
   color: var(--accent);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-}
-
-.modal-year {
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 12px;
-}
-
-.modal-close {
-  display: flex;
-  width: 36px;
-  height: 36px;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 2px;
-  background: rgba(255, 255, 255, 0.05);
-  color: rgba(255, 255, 255, 0.7);
-  cursor: pointer;
-  transition:
-    background 0.15s,
-    color 0.15s;
-}
-
-.modal-close:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
 }
 
 .modal-close:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
+  outline-color: var(--accent);
 }
 
-.modal-name {
-  margin: 0 0 12px;
-  color: #fff;
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: clamp(36px, 6vw, 52px);
-  font-weight: 600;
-  line-height: 1.05;
-}
-
-.modal-short {
-  max-width: 480px;
-  margin: 0;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-.modal-divider {
-  height: 1px;
-  margin: 32px 0;
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.modal-sections {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-  margin-bottom: 36px;
-}
-
-.modal-section-title,
-.modal-results-title {
-  margin: 0 0 10px;
+.modal-accent-text {
   color: var(--accent);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.modal-section-body {
-  max-width: 560px;
-  margin: 0;
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 15px;
-  line-height: 1.65;
 }
 
 .modal-results {
-  margin-bottom: 36px;
-  padding: 20px 24px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-left: 2px solid var(--accent);
-  border-radius: 2px;
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.modal-results-title {
-  margin-bottom: 14px;
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.modal-results-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.modal-results-list li {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 14px;
-  line-height: 1.4;
+  border-left: 3px solid var(--accent);
 }
 
 .result-dot {
-  position: relative;
-  top: -1px;
-  width: 5px;
-  height: 5px;
-  flex-shrink: 0;
-  border-radius: 50%;
   background: var(--accent);
-}
-
-.modal-footer {
-  padding-top: 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.modal-stack {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.modal-stack-label {
-  flex-shrink: 0;
-  color: rgba(255, 255, 255, 0.45);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.modal-stack-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.modal-stack-list li {
-  padding: 3px 10px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 2px;
-  background: rgba(255, 255, 255, 0.05);
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 12px;
 }
 
 .modal-enter-active,
@@ -407,30 +248,9 @@ onUnmounted(() => {
 }
 
 @media (min-width: 768px) {
-  .modal-backdrop {
-    align-items: center;
-    padding: 24px;
-  }
-
-  .modal-panel {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-  }
-
   .modal-enter-from .modal-panel,
   .modal-leave-to .modal-panel {
     transform: translateY(12px) scale(0.98);
-  }
-}
-
-@media (max-width: 480px) {
-  .modal-panel {
-    padding: 28px 22px 36px;
-  }
-
-  .modal-stack {
-    align-items: flex-start;
-    flex-direction: column;
   }
 }
 

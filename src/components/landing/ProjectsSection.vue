@@ -1,17 +1,49 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+import type { Project } from '@/data/projects'
+import { projects } from '@/data/projects'
+import ProjectCard from '@/components/projects/ProjectCard.vue'
+import ProjectModal from '@/components/projects/ProjectModal.vue'
+
+const activeProject = ref<Project | null>(null)
+
+function openModal(project: Project) {
+  activeProject.value = project
+}
+
+function closeModal() {
+  activeProject.value = null
+}
+</script>
+
 <template>
-  <section id="projetos" class="projects-section" aria-labelledby="projects-heading">
-    <header class="projects-header">
-      <div class="projects-header-text">
-        <h2 id="projects-heading" class="projects-title">Projetos</h2>
-        <p class="projects-subtitle">
-          Do licenciamento público ao mercado de carbono — sistemas que resolvem problemas reais com
-          arquitetura pensada para crescer.
+  <section
+    id="projetos"
+    class="w-full overflow-hidden border-t border-navy/30 bg-deep-blue py-14 sm:py-20"
+    aria-labelledby="projects-heading"
+  >
+    <header class="mx-auto mb-8 max-w-7xl px-4 sm:mb-9 sm:px-6 lg:px-8">
+      <div class="max-w-xl">
+        <span
+          class="mb-3 inline-block font-sans text-sm font-semibold tracking-wide text-cyan-vibrant uppercase"
+        >
+          Portfólio
+        </span>
+        <h2
+          id="projects-heading"
+          class="mb-3.5 font-display text-4xl font-bold leading-[1.08] text-ice sm:text-5xl"
+        >
+          Projetos
+        </h2>
+        <p class="font-sans text-base leading-relaxed text-ice/75">
+          Do licenciamento público ao mercado de carbono — sistemas que resolvem
+          problemas reais com arquitetura pensada para crescer.
         </p>
       </div>
     </header>
 
     <v-slide-group
-      class="projects-carousel"
+      class="projects-carousel mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
       role="region"
       aria-label="Navegar entre projetos"
       show-arrows="desktop"
@@ -31,75 +63,14 @@
   </section>
 </template>
 
-<script setup lang="ts">
-import { ref } from 'vue'
-import type { Project } from '@/data/projects'
-import { projects } from '@/data/projects'
-import ProjectCard from '@/components/projects/ProjectCard.vue'
-import ProjectModal from '@/components/projects/ProjectModal.vue'
-
-const activeProject = ref<Project | null>(null)
-
-function openModal(project: Project) {
-  activeProject.value = project
-}
-
-function closeModal() {
-  activeProject.value = null
-}
-</script>
-
 <style scoped>
-.projects-section {
-  width: calc(100% + 48px);
-  margin: 0 -24px;
-  padding: 72px 0;
-}
-
-.projects-header {
-  margin-bottom: 36px;
-  padding: 0 clamp(24px, 5vw, 80px);
-}
-
-.projects-header-text {
-  max-width: 480px;
-}
-
-.projects-title {
-  margin: 0 0 14px;
-  color: #fff;
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: clamp(36px, 5vw, 52px);
-  font-weight: 600;
-  line-height: 1.05;
-}
-
-.projects-subtitle {
-  margin: 0;
-  color: rgba(255, 255, 255, 0.55);
-  font-size: 16px;
-  line-height: 1.55;
-}
-
-.projects-carousel {
-  width: 100%;
-  padding: 0 clamp(24px, 5vw, 80px);
-}
-
 .projects-carousel :deep(.v-slide-group__content) {
   gap: 20px;
-  padding: 0 0 8px;
+  padding: 4px 0 12px;
 }
 
-@media (max-width: 480px) {
-  .projects-section {
-    width: calc(100% + 32px);
-    margin-inline: -16px;
-    padding: 56px 0;
-  }
-
-  .projects-header {
-    margin-bottom: 32px;
-  }
+.projects-carousel :deep(.v-slide-group__prev),
+.projects-carousel :deep(.v-slide-group__next) {
+  color: var(--color-cyan-vibrant);
 }
 </style>

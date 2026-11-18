@@ -5,28 +5,53 @@ defineProps<{
 </script>
 
 <template>
-  <section id="inicio" class="hero-section">
-    <div class="hero-content">
-      <span class="badge">Solução simples e moderna</span>
+  <section
+    id="inicio"
+    class="mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-10 px-4 py-12 text-center sm:px-6 lg:grid-cols-[1.2fr_1fr] lg:px-8 lg:py-16 lg:text-left"
+  >
+    <div>
+      <span
+        class="mb-4 inline-block rounded-full border border-cyan-vibrant/30 bg-petrol/60 px-3.5 py-2 font-sans text-sm font-medium text-turquoise"
+      >
+        Solução simples e moderna
+      </span>
 
-      <h1>Organize tudo o que você precisa em um só lugar</h1>
+      <h1
+        class="mb-5 font-display text-3xl leading-[1.1] font-bold text-ice sm:text-4xl lg:text-5xl"
+      >
+        Organize tudo o que você precisa em um só lugar
+      </h1>
 
-      <p>
+      <p
+        class="mx-auto mb-7 max-w-[560px] font-sans text-base leading-relaxed text-ice/80 sm:text-[1.05rem] lg:mx-0"
+      >
         Uma landing page responsiva, clara e funcional para apresentar sua solução
         em desktop, tablet e mobile.
       </p>
 
-      <div class="hero-actions">
-        <a href="#contato" class="primary-btn">Começar agora</a>
-        <a href="#sobre" class="secondary-btn">Saiba mais</a>
+      <div
+        class="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap lg:justify-start"
+      >
+        <a
+          href="#contato"
+          class="inline-flex min-h-[46px] w-full items-center justify-center rounded-[10px] bg-cyan-vibrant px-5 font-sans font-semibold text-deep-blue shadow-[0_0_20px_rgba(22,222,253,0.25)] transition-all hover:-translate-y-0.5 hover:bg-cyan-neon focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-neon sm:w-auto"
+        >
+          Começar agora
+        </a>
+        <a
+          href="#sobre"
+          class="inline-flex min-h-[46px] w-full items-center justify-center rounded-[10px] border border-navy bg-graphite/80 px-5 font-sans font-semibold text-ice transition-all hover:-translate-y-0.5 hover:border-sky-electric hover:text-cyan-vibrant focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-neon sm:w-auto"
+        >
+          Saiba mais
+        </a>
       </div>
     </div>
 
-    <div class="hero-visual">
+    <div class="flex items-center justify-center">
       <img
         :src="image"
         alt="Ilustração principal da landing page"
-        class="hero-image"
+        class="h-auto w-full max-w-[380px] rounded-[20px] border border-navy/50 object-cover shadow-[0_10px_30px_rgba(0,0,0,0.35)] lg:max-w-[460px]"
         width="460"
         height="460"
         loading="lazy"

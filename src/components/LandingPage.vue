@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import pineappleImage from '@/assets/pinaple.webp'
 
-// Importando os novos componentes modulares
 import LandingHeader from './landing/LandingHeader.vue'
 import LandingHero from './landing/LandingHero.vue'
 import LandingAbout from './landing/LandingAbout.vue'
@@ -14,9 +13,9 @@ import LandingFooter from './landing/LandingFooter.vue'
 </script>
 
 <template>
-  <div class="landing-page">
+  <div class="min-h-screen overflow-x-hidden bg-deep-blue px-4 text-ice sm:px-6">
     <LandingHeader />
-    
+
     <main>
       <LandingHero :image="pineappleImage" />
       <LandingAbout />

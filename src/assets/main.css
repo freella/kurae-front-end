@@ -1,1 +1,109 @@
 @import "tailwindcss";
+
+/* ==========================================================================
+   Kurae Solutions — fundação visual (KSS-81)
+
+   O Vuetify só aceita hex (não aceita var()), então esta paleta é repetida em
+   src/plugins/vuetify.ts. Qualquer alteração de cor deve ser feita nos dois.
+   ========================================================================== */
+
+/* "static" gera todas as variáveis no :root mesmo sem uso nas classes,
+   para que estilos customizados também possam usar var(--color-*). */
+@theme static {
+  /* ---- Paleta oficial: destaque / logo ---- */
+  --color-cyan-neon: #2ef8fd;
+  --color-cyan-vibrant: #16defd;
+  --color-turquoise: #5dfced;
+  --color-sky-electric: #04bcfd;
+
+  /* ---- Paleta oficial: fundos / superfícies ---- */
+  --color-deep-blue: #04152b;
+  --color-petrol: #073b53;
+  --color-dark-blue: #011656;
+  --color-graphite: #151c25;
+  --color-deep-teal: #01383d;
+  --color-navy: #205fbe;
+
+  /* ---- Texto claro (fora da paleta oficial — confirmar com o design) ---- */
+  --color-ice: #eef7fa;
+
+  /* ---- Cores semânticas (espelham os nomes do tema Vuetify) ---- */
+  --color-primary: var(--color-cyan-vibrant);
+  --color-on-primary: var(--color-deep-blue);
+  --color-secondary: var(--color-sky-electric);
+  --color-on-secondary: var(--color-deep-blue);
+  --color-accent: var(--color-turquoise);
+  --color-on-accent: var(--color-deep-blue);
+  --color-highlight: var(--color-cyan-neon);
+
+  --color-background: var(--color-deep-blue);
+  --color-on-background: var(--color-ice);
+  --color-surface: var(--color-petrol);
+  --color-on-surface: var(--color-ice);
+  --color-surface-variant: var(--color-graphite);
+  --color-on-surface-variant: var(--color-ice);
+  --color-outline: var(--color-navy);
+
+  /* Estados: não existem na paleta oficial; mantidos iguais aos defaults dark do Vuetify */
+  --color-error: #cf6679;
+  --color-warning: #fb8c00;
+  --color-success: #4caf50;
+  --color-info: #2196f3;
+
+  /* ---- Tipografia ---- */
+  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    background-color: var(--color-background);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-on-background);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+  }
+}
+
+/* ==========================================================================
+   Vuetify → tipografia da marca
+
+   Fica fora de @layer de propósito: CSS sem layer vence CSS dentro de layer,
+   e o prefixo .v-application garante especificidade maior que as classes do
+   Vuetify, independentemente da ordem de import em main.ts.
+   Alternativa definitiva: $body-font-family / $heading-font-family via
+   vite-plugin-vuetify (styles.configFile).
+   ========================================================================== */
+.v-application,
+.v-overlay-container {
+  font-family: var(--font-sans);
+}
+
+.v-application
+  :is(.text-h1, .text-h2, .text-h3, .text-h4, .text-h5, .text-h6) {
+  font-family: var(--font-display);
+}
+
+.v-application
+  :is(
+    .text-subtitle-1,
+    .text-subtitle-2,
+    .text-body-1,
+    .text-body-2,
+    .text-button,
+    .text-caption,
+    .text-overline
+  ) {
+  font-family: var(--font-sans);
+}
