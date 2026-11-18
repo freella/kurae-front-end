@@ -10,27 +10,57 @@ function toggleFaq(index: number) {
 </script>
 
 <template>
-  <section id="faq" class="faq-section">
-    <div class="section-header">
-      <span class="section-label">Dúvidas frequentes</span>
-      <h2>Perguntas & Respostas</h2>
-      <p>Encontre rapidamente as respostas para as dúvidas mais comuns.</p>
+  <section
+    id="faq"
+    class="mx-auto max-w-7xl border-t border-navy/30 px-4 py-20 sm:px-6 lg:px-8"
+  >
+    <div class="mb-10">
+      <span
+        class="mb-3 inline-block font-sans text-sm font-semibold tracking-wide text-cyan-vibrant uppercase"
+      >
+        Dúvidas frequentes
+      </span>
+      <h2 class="mb-3 font-display text-2xl font-bold text-ice sm:text-4xl">
+        Perguntas & Respostas
+      </h2>
+      <p class="max-w-[580px] font-sans leading-relaxed text-ice/75">
+        Encontre rapidamente as respostas para as dúvidas mais comuns.
+      </p>
     </div>
 
-    <div class="faq-list">
+    <div class="flex max-w-[760px] flex-col gap-3">
       <div
         v-for="(faq, index) in LANDING_CONTENT.faqs"
         :key="index"
-        class="faq-item"
-        :class="{ 'faq-item--open': openFaq === index }"
+        class="overflow-hidden rounded-xl border transition-colors"
+        :class="
+          openFaq === index
+            ? 'border-cyan-vibrant/60 bg-petrol/30'
+            : 'border-navy/50 bg-graphite/90 hover:border-sky-electric/40'
+        "
       >
-        <button class="faq-question" @click="toggleFaq(index)" :aria-expanded="openFaq === index">
+        <button
+          type="button"
+          class="flex w-full cursor-pointer items-center justify-between gap-4 px-6 py-5 text-left font-sans text-base font-medium text-ice transition-colors hover:bg-petrol/30 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-cyan-neon"
+          :aria-expanded="openFaq === index"
+          @click="toggleFaq(index)"
+        >
           <span>{{ faq.question }}</span>
-          <span class="faq-icon" aria-hidden="true">{{ openFaq === index ? '−' : '+' }}</span>
+          <span
+            class="shrink-0 font-sans text-2xl font-light leading-none text-cyan-vibrant"
+            aria-hidden="true"
+          >
+            {{ openFaq === index ? '−' : '+' }}
+          </span>
         </button>
 
-        <div class="faq-answer" :class="{ 'faq-answer--visible': openFaq === index }">
-          <p>{{ faq.answer }}</p>
+        <div
+          class="overflow-hidden px-6 transition-all duration-300 ease-out"
+          :class="openFaq === index ? 'max-h-[240px] pb-5 opacity-100' : 'max-h-0 opacity-0'"
+        >
+          <p class="font-sans text-[0.95rem] leading-relaxed text-ice/75">
+            {{ faq.answer }}
+          </p>
         </div>
       </div>
     </div>

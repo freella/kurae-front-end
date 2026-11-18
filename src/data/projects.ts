@@ -27,7 +27,7 @@ export const projects: Project[] = [
     year: '2026',
     stack: ['Vue.js', 'Django REST', 'PostgreSQL', 'Redis'],
     cover: null,
-    accentColor: '#00C896',
+    accentColor: '#16defd',
     sections: [
       {
         title: 'O problema',
@@ -56,7 +56,7 @@ export const projects: Project[] = [
     year: '2026',
     stack: ['Vue.js', 'Django REST', 'PostgreSQL'],
     cover: null,
-    accentColor: '#4ADE80',
+    accentColor: '#5dfced',
     sections: [
       {
         title: 'O problema',
@@ -87,7 +87,7 @@ export const projects: Project[] = [
     year: '2025',
     stack: ['Vue.js', 'Node.js', 'PostgreSQL'],
     cover: null,
-    accentColor: '#818CF8',
+    accentColor: '#04bcfd',
     sections: [
       {
         title: 'O problema',

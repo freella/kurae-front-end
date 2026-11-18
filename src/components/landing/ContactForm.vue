@@ -36,7 +36,6 @@ async function handleSubmit() {
     try {
       track('contact_form_submitted')
     } catch {
-      // Uma falha na medição não altera o resultado do envio.
     }
   } catch {
     errorMessage.value = 'Não foi possível enviar seus dados. Tente novamente.'
@@ -47,47 +46,80 @@ async function handleSubmit() {
 </script>
 
 <template>
-  <section id="contato" class="cta-section">
-    <h2>Pronto para começar?</h2>
-    <p>Preencha o formulário para entrar em contato com a equipe.</p>
+  <section
+    id="contato"
+    class="mx-auto max-w-7xl border-t border-navy/30 px-4 py-20 text-center sm:px-6 lg:px-8"
+  >
+    <span
+      class="mb-3 inline-block font-sans text-sm font-semibold tracking-wide text-cyan-vibrant uppercase"
+    >
+      Contato
+    </span>
+    <h2 class="mb-3 font-display text-2xl font-bold text-ice sm:text-4xl">
+      Pronto para começar?
+    </h2>
+    <p class="mx-auto mb-8 max-w-xl font-sans leading-relaxed text-ice/75">
+      Preencha o formulário para entrar em contato com a equipe.
+    </p>
 
-    <form class="lead-form" @submit.prevent="handleSubmit">
-      <div class="form-group">
-        <label for="name">Nome</label>
+    <form
+      class="mx-auto grid max-w-[480px] gap-4 text-left font-sans"
+      @submit.prevent="handleSubmit"
+    >
+      <div class="grid gap-2">
+        <label for="name" class="text-sm font-semibold text-ice">Nome</label>
         <input
           id="name"
           v-model="name"
           type="text"
-          :class="['form-input', { 'input-error': errors.name }]"
+          :class="[
+            'min-h-12 w-full rounded-[10px] border bg-graphite/90 px-3.5 text-base text-ice placeholder:text-ice/45 transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-cyan-neon/40',
+            errors.name
+              ? 'border-error bg-error/10 focus:border-error'
+              : 'border-navy focus:border-cyan-vibrant',
+          ]"
           placeholder="Seu nome"
           @input="errors.name = ''"
         />
-        <span v-if="errors.name" class="field-error">{{ errors.name }}</span>
+        <span v-if="errors.name" class="text-xs font-medium text-error">
+          {{ errors.name }}
+        </span>
       </div>
 
-      <div class="form-group">
-        <label for="email">Email</label>
+      <div class="grid gap-2">
+        <label for="email" class="text-sm font-semibold text-ice">Email</label>
         <input
           id="email"
           v-model="email"
           type="email"
-          :class="['form-input', { 'input-error': errors.email }]"
+          :class="[
+            'min-h-12 w-full rounded-[10px] border bg-graphite/90 px-3.5 text-base text-ice placeholder:text-ice/45 transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-cyan-neon/40',
+            errors.email
+              ? 'border-error bg-error/10 focus:border-error'
+              : 'border-navy focus:border-cyan-vibrant',
+          ]"
           placeholder="seuemail@exemplo.com"
           @input="errors.email = ''"
         />
-        <span v-if="errors.email" class="field-error">{{ errors.email }}</span>
+        <span v-if="errors.email" class="text-xs font-medium text-error">
+          {{ errors.email }}
+        </span>
       </div>
 
-      <button type="submit" class="primary-btn" :disabled="isSubmitting">
+      <button
+        type="submit"
+        class="mt-2 inline-flex min-h-12 w-full cursor-pointer items-center justify-center rounded-[10px] bg-cyan-vibrant px-5 font-semibold text-deep-blue shadow-lg shadow-cyan-vibrant/20 transition-all hover:-translate-y-0.5 hover:bg-cyan-neon focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-neon disabled:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60"
+        :disabled="isSubmitting"
+      >
         {{ isSubmitting ? 'Enviando...' : 'Enviar' }}
       </button>
     </form>
 
-    <p v-if="successMessage" class="form-feedback success">
+    <p v-if="successMessage" class="mt-4 font-sans text-sm font-medium text-turquoise">
       {{ successMessage }}
     </p>
 
-    <p v-if="errorMessage" class="form-feedback error">
+    <p v-if="errorMessage" class="mt-4 font-sans text-sm font-medium text-error">
       {{ errorMessage }}
     </p>
   </section>

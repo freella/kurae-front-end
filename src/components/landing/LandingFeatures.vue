@@ -3,20 +3,42 @@ import { LANDING_CONTENT } from '@/config/landing.config'
 </script>
 
 <template>
-  <section id="beneficios" class="features-section">
-    <div class="section-header">
-      <span class="section-label">Benefícios</span>
-      <h2>Por que escolher nossa solução?</h2>
-      <p>
-        Uma plataforma pensada para ser legível, adaptável e pronta para evoluir com o seu projeto.
+  <section
+    id="beneficios"
+    class="mx-auto max-w-7xl border-t border-navy/30 px-4 py-20 sm:px-6 lg:px-8"
+  >
+    <div class="mb-10">
+      <span
+        class="mb-3 inline-block font-sans text-sm font-semibold tracking-wide text-cyan-vibrant uppercase"
+      >
+        Benefícios
+      </span>
+      <h2 class="mb-3 font-display text-2xl font-bold text-ice sm:text-4xl">
+        Por que escolher nossa solução?
+      </h2>
+      <p class="max-w-[580px] font-sans leading-relaxed text-ice/75">
+        Uma plataforma pensada para ser legível, adaptável e pronta para evoluir
+        com o seu projeto.
       </p>
     </div>
 
-    <div class="features-grid">
-      <article v-for="benefit in LANDING_CONTENT.benefits" :key="benefit.title" class="feature-card">
-        <v-icon class="feature-icon" :icon="benefit.icon" />
-        <h3>{{ benefit.title }}</h3>
-        <p>{{ benefit.description }}</p>
+    <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <article
+        v-for="benefit in LANDING_CONTENT.benefits"
+        :key="benefit.title"
+        class="rounded-2xl border border-navy/50 bg-graphite/90 px-6 py-7 transition-all hover:-translate-y-0.5 hover:border-cyan-vibrant/50 hover:bg-petrol/40"
+      >
+        <div
+          class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-sky-electric/30 bg-petrol/70"
+        >
+          <v-icon :icon="benefit.icon" color="primary" size="26" />
+        </div>
+        <h3 class="mb-2.5 font-display text-lg font-bold text-ice">
+          {{ benefit.title }}
+        </h3>
+        <p class="font-sans text-sm leading-relaxed text-ice/75">
+          {{ benefit.description }}
+        </p>
       </article>
     </div>
   </section>
