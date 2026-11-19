@@ -1,5 +1,5 @@
 export const LANDING_CONTENT = {
-  brand: 'SeuProjeto',
+  brand: 'Kurae Solutions',
   faqs: [
     {
       question: 'O que é este produto?',
