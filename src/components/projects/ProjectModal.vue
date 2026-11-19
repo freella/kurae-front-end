@@ -110,14 +110,7 @@ onUnmounted(() => {
               aria-label="Fechar detalhes do projeto"
               @click="emit('close')"
             >
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                <path
-                  d="M15 5L5 15M5 5l10 10"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                />
-              </svg>
+              <v-icon icon="mdi-close" size="20" aria-hidden="true" />
             </button>
           </header>
 

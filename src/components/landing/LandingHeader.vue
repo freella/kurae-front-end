@@ -1,65 +1,67 @@
 <script setup lang="ts">
 import { LANDING_CONTENT } from '@/config/landing.config'
+import kuraeLogoHeader from '@/assets/logos/kurae/Kurae_Logo_V03.svg'
 </script>
 
 <template>
-  <header
-    class="mx-auto flex max-w-[1200px] flex-col items-start justify-between gap-4 border-b border-navy/40 px-4 py-6 sm:flex-row sm:items-center sm:px-6 lg:px-8"
-  >
-    <a
-      href="#inicio"
-      class="font-display text-xl font-bold tracking-tight text-ice transition-colors hover:text-cyan-vibrant focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-neon"
-    >
-      {{ LANDING_CONTENT.brand }}
-    </a>
-
-    <nav
-      aria-label="Navegação principal"
-      class="flex w-full flex-wrap items-center gap-x-5 gap-y-2 font-sans text-sm font-medium sm:w-auto sm:gap-x-6"
+  <header class="w-full border-b border-navy/40">
+    <div
+      class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 px-4 py-4 sm:px-6 md:flex-row md:items-center lg:px-8"
     >
       <a
         href="#inicio"
-        class="text-ice/85 transition-colors hover:text-cyan-vibrant focus-visible:rounded-sm focus-visible:text-cyan-vibrant focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-neon"
+        class="inline-flex items-center transition-opacity hover:opacity-90 focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-neon"
       >
-        Início
+        <img
+          :src="kuraeLogoHeader"
+          :alt="LANDING_CONTENT.brand"
+          class="h-10 w-auto sm:h-11"
+        />
       </a>
-      <a
-        href="#sobre"
-        class="text-ice/85 transition-colors hover:text-cyan-vibrant focus-visible:rounded-sm focus-visible:text-cyan-vibrant focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-neon"
+
+      <nav
+        aria-label="Navegação principal"
+        class="flex flex-wrap items-center gap-x-6 gap-y-2 font-sans text-sm font-medium lg:gap-x-8"
       >
-        Sobre
-      </a>
-      <a
-        href="#projetos"
-        class="text-ice/85 transition-colors hover:text-cyan-vibrant focus-visible:rounded-sm focus-visible:text-cyan-vibrant focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-neon"
-      >
-        Projetos
-      </a>
-      <a
-        href="#tecnologias"
-        class="text-ice/85 transition-colors hover:text-cyan-vibrant focus-visible:rounded-sm focus-visible:text-cyan-vibrant focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-neon"
-      >
-        Tecnologias
-      </a>
-      <a
-        href="#beneficios"
-        class="text-ice/85 transition-colors hover:text-cyan-vibrant focus-visible:rounded-sm focus-visible:text-cyan-vibrant focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-neon"
-      >
-        Benefícios
-      </a>
-      <a
-        href="#faq"
-        class="text-ice/85 transition-colors hover:text-cyan-vibrant focus-visible:rounded-sm focus-visible:text-cyan-vibrant focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-neon"
-      >
-        FAQ
-      </a>
+        <a
+          href="#inicio"
+          class="text-ice/85 transition-colors hover:text-cyan-vibrant focus-visible:rounded-sm focus-visible:text-cyan-vibrant focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-neon"
+        >
+          Início
+        </a>
+        <a
+          href="#sobre"
+          class="text-ice/85 transition-colors hover:text-cyan-vibrant focus-visible:rounded-sm focus-visible:text-cyan-vibrant focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-neon"
+        >
+          Sobre
+        </a>
+        <a
+          href="#projetos"
+          class="text-ice/85 transition-colors hover:text-cyan-vibrant focus-visible:rounded-sm focus-visible:text-cyan-vibrant focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-neon"
+        >
+          Projetos
+        </a>
+        <a
+          href="#tecnologias"
+          class="text-ice/85 transition-colors hover:text-cyan-vibrant focus-visible:rounded-sm focus-visible:text-cyan-vibrant focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-neon"
+        >
+          Tecnologias
+        </a>
+        <a
+          href="#abordagem"
+          class="text-ice/85 transition-colors hover:text-cyan-vibrant focus-visible:rounded-sm focus-visible:text-cyan-vibrant focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-neon"
+        >
+          Abordagem
+        </a>
+      </nav>
+
       <a
         href="#contato"
-        class="text-ice/85 transition-colors hover:text-cyan-vibrant focus-visible:rounded-sm focus-visible:text-cyan-vibrant focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-neon"
+        class="inline-flex items-center rounded-lg border border-cyan-vibrant/50 bg-petrol/40 px-4 py-2 font-sans text-sm font-semibold text-cyan-vibrant transition-all hover:border-cyan-vibrant hover:bg-cyan-vibrant hover:text-deep-blue focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-neon"
       >
         Contato
       </a>
-    </nav>
+    </div>
   </header>
 </template>
 

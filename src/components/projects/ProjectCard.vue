@@ -12,7 +12,7 @@ defineEmits<{
 </script>
 
 <template>
-  <article class="h-[164px] w-[156px] shrink-0 snap-start" role="listitem">
+  <article class="h-[172px] w-[184px] shrink-0 snap-start" role="listitem">
     <button
       class="project-card group relative flex h-full w-full cursor-pointer flex-col overflow-hidden rounded-xl border border-navy/50 bg-gradient-to-br from-graphite to-deep-blue p-0 text-left font-sans text-ice transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2"
       :style="{ '--accent': project.accentColor || 'var(--color-cyan-vibrant)' }"
@@ -33,14 +33,14 @@ defineEmits<{
         :opacity="0.15"
       />
 
-      <div class="relative z-2 flex h-full flex-col px-3 py-3.5">
-        <div class="mb-auto flex items-center justify-between">
+      <div class="relative z-2 flex h-full flex-col px-3.5 py-3.5">
+        <div class="mb-auto flex items-center justify-between gap-2">
           <span
-            class="card-tag rounded px-1.5 py-0.5 text-[9px] font-medium tracking-wider uppercase"
+            class="card-tag whitespace-nowrap rounded px-1.5 py-0.5 text-[9px] font-medium tracking-wider uppercase"
           >
             {{ project.tag }}
           </span>
-          <span class="text-[10px] text-ice/45">{{ project.year }}</span>
+          <span class="shrink-0 text-[10px] text-ice/45">{{ project.year }}</span>
         </div>
 
         <div class="mt-auto mb-3">

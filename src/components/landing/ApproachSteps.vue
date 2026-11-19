@@ -12,25 +12,25 @@ const steps: Step[] = [
     title: '1. O Problema Antes da Tecnologia',
     description:
       'Mergulhamos no contexto do negócio. Não escrevemos uma linha de código sem antes compreender a dor real que precisa de ser resolvida.',
-    icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z',
+    icon: 'mdi-magnify',
   },
   {
     title: '2. Experiência e Estratégia',
     description:
       'Desenhamos a solução focada nas pessoas. Unimos usabilidade e objetivos de negócio para garantir que o produto final é intuitivo e útil.',
-    icon: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z',
+    icon: 'mdi-lightbulb-outline',
   },
   {
     title: '3. Desenvolvimento e Qualidade',
     description:
       'Transformamos o design em realidade com arquitetura sólida, segurança e boas práticas de engenharia de software.',
-    icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
+    icon: 'mdi-code-tags',
   },
   {
     title: '4. Evolução Contínua',
     description:
       'Um produto digital nunca está verdadeiramente finalizado. Monitorizamos métricas, aplicamos melhorias e escalamos a solução conforme o negócio cresce.',
-    icon: 'M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15',
+    icon: 'mdi-autorenew',
   },
 ]
 
@@ -66,6 +66,7 @@ onUnmounted(() => {
 
 <template>
   <section
+    id="abordagem"
     class="overflow-hidden border-t border-navy/30 bg-graphite/50 py-24"
   >
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -100,20 +101,7 @@ onUnmounted(() => {
               <div
                 class="flex h-10 w-10 items-center justify-center rounded-full border border-sky-electric/30 bg-petrol/80 text-cyan-vibrant"
               >
-                <svg
-                  aria-hidden="true"
-                  class="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    :d="step.icon"
-                  />
-                </svg>
+                <v-icon :icon="step.icon" size="20" aria-hidden="true" />
               </div>
             </div>
 
