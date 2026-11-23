@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { track } from '@vercel/analytics'
 
+defineOptions({
+  name: 'LandingHero',
+})
+
 const handlePrimaryAction = () => {
   try {
     track('vitalis_cta_click')
@@ -43,13 +47,13 @@ const handlePrimaryAction = () => {
             <a
               href="#contato"
               @click="handlePrimaryAction"
-              class="cursor-pointer rounded-xl bg-cyan-vibrant px-8 py-4 text-center font-sans font-semibold text-deep-blue shadow-lg shadow-cyan-vibrant/25 transition-all hover:-translate-y-0.5 hover:bg-cyan-neon focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-neon"
+              class="cursor-pointer rounded-xl bg-cyan-vibrant px-8 py-4 text-center font-sans font-semibold text-deep-blue shadow-[0_0_20px_rgba(0,240,255,0.45)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-cyan-neon hover:shadow-[0_0_32px_rgba(0,240,255,0.8)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-neon"
             >
               Experimente o Vitalis
             </a>
             <a
               href="#sobre"
-              class="rounded-xl border border-navy bg-graphite/90 px-8 py-4 text-center font-sans font-semibold text-ice transition-all hover:-translate-y-0.5 hover:border-sky-electric hover:bg-petrol/60 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-neon"
+              class="rounded-xl border border-cyan-vibrant/50 bg-deep-blue/80 px-8 py-4 text-center font-sans font-semibold text-ice transition-all duration-200 hover:-translate-y-0.5 hover:border-cyan-vibrant hover:text-cyan-vibrant hover:shadow-[0_0_22px_rgba(0,240,255,0.35)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-neon"
             >
               Conhecer a Solução
             </a>
@@ -58,10 +62,10 @@ const handlePrimaryAction = () => {
 
         <div class="lg:col-span-5">
           <div
-            class="relative rounded-2xl border border-navy/60 bg-graphite/90 p-6 shadow-2xl backdrop-blur-sm"
+            class="relative rounded-2xl border border-cyan-vibrant/35 bg-graphite/85 p-6 shadow-[0_0_25px_rgba(0,240,255,0.12)] backdrop-blur-md transition-all duration-200 hover:border-cyan-vibrant hover:shadow-[0_0_32px_rgba(0,240,255,0.25)]"
           >
             <div
-              class="absolute -top-3 -right-3 rounded-full bg-cyan-vibrant px-3 py-1 font-sans text-xs font-bold tracking-wider text-deep-blue uppercase"
+              class="absolute -top-3 -right-3 rounded-full bg-cyan-vibrant px-3 py-1 font-sans text-xs font-bold tracking-wider text-deep-blue uppercase shadow-md shadow-cyan-vibrant/40"
             >
               IA Ativa
             </div>
