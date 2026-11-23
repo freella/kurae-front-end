@@ -73,10 +73,10 @@ async function handleSubmit() {
           v-model="name"
           type="text"
           :class="[
-            'min-h-12 w-full rounded-[10px] border bg-graphite/90 px-3.5 text-base text-ice placeholder:text-ice/45 transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-cyan-neon/40',
+            'min-h-12 w-full rounded-[10px] border bg-graphite/90 px-3.5 text-base text-ice placeholder:text-ice/45 transition-all duration-200 focus:outline-none',
             errors.name
               ? 'border-error bg-error/10 focus:border-error'
-              : 'border-navy focus:border-cyan-vibrant',
+              : 'border-navy focus:border-cyan-vibrant focus:shadow-[0_0_16px_rgba(0,240,255,0.35)]',
           ]"
           placeholder="Seu nome"
           @input="errors.name = ''"
@@ -93,10 +93,10 @@ async function handleSubmit() {
           v-model="email"
           type="email"
           :class="[
-            'min-h-12 w-full rounded-[10px] border bg-graphite/90 px-3.5 text-base text-ice placeholder:text-ice/45 transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-cyan-neon/40',
+            'min-h-12 w-full rounded-[10px] border bg-graphite/90 px-3.5 text-base text-ice placeholder:text-ice/45 transition-all duration-200 focus:outline-none',
             errors.email
               ? 'border-error bg-error/10 focus:border-error'
-              : 'border-navy focus:border-cyan-vibrant',
+              : 'border-navy focus:border-cyan-vibrant focus:shadow-[0_0_16px_rgba(0,240,255,0.35)]',
           ]"
           placeholder="seuemail@exemplo.com"
           @input="errors.email = ''"
@@ -108,7 +108,7 @@ async function handleSubmit() {
 
       <button
         type="submit"
-        class="mt-2 inline-flex min-h-12 w-full cursor-pointer items-center justify-center rounded-[10px] bg-cyan-vibrant px-5 font-semibold text-deep-blue shadow-lg shadow-cyan-vibrant/20 transition-all hover:-translate-y-0.5 hover:bg-cyan-neon focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-neon disabled:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60"
+        class="mt-2 inline-flex min-h-12 w-full cursor-pointer items-center justify-center rounded-[10px] bg-cyan-vibrant px-5 font-semibold text-deep-blue shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-cyan-neon hover:shadow-[0_0_30px_rgba(0,240,255,0.75)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-neon disabled:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60 disabled:shadow-none"
         :disabled="isSubmitting"
       >
         {{ isSubmitting ? 'Enviando...' : 'Enviar' }}

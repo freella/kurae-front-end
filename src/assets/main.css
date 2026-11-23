@@ -106,4 +106,60 @@
     .text-overline
   ) {
   font-family: var(--font-sans);
+    /* Design System — Botões com Brilho */
+.btn-kurae-primary {
+  background-color: #00f0ff;
+  color: #0b0f19;
+  box-shadow: 0 0 18px rgba(0, 240, 255, 0.4);
+  transition: all 0.25s ease;
+}
+
+.btn-kurae-primary:hover {
+  box-shadow: 0 0 28px rgba(0, 240, 255, 0.75);
+  transform: translateY(-1px);
+}
+
+.btn-kurae-ghost {
+  background-color: rgba(11, 15, 25, 0.75);
+  border: 1px solid rgba(0, 240, 255, 0.5);
+  color: #eef7fa;
+  transition: all 0.25s ease;
+}
+
+.btn-kurae-ghost:hover {
+  border-color: #00f0ff;
+  box-shadow:
+    0 0 20px rgba(0, 240, 255, 0.4),
+    inset 0 0 12px rgba(0, 240, 255, 0.15);
+  color: #00f0ff;
+}
+
+/* Design System — Cards com Glassmorphism e Borda Ciano */
+.card-kurae-glow {
+  background: linear-gradient(180deg, rgba(17, 24, 39, 0.85) 0%, rgba(11, 15, 25, 0.95) 100%);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 240, 255, 0.35);
+  box-shadow: 0 0 24px rgba(0, 240, 255, 0.1);
+  transition: all 0.25s ease;
+}
+
+.card-kurae-glow:hover {
+  border-color: #00f0ff;
+  box-shadow: 0 0 32px rgba(0, 240, 255, 0.25);
+}
+
+/* Design System — Inputs com Foco Neon */
+.input-kurae-glow {
+  background-color: rgba(11, 15, 25, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.input-kurae-glow:focus {
+  outline: none;
+  border-color: #00f0ff;
+  box-shadow: 0 0 16px rgba(0, 240, 255, 0.35);
+}
 }
