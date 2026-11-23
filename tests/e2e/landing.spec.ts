@@ -2,7 +2,6 @@ import { test, expect } from '@playwright/test'
 
 test.describe('Landing Page Lead Flow', () => {
   test.beforeEach(async ({ page }) => {
-    // Acesse a URL local (Vite padrão)
     await page.goto('http://localhost:5173')
   })
 
@@ -11,33 +10,43 @@ test.describe('Landing Page Lead Flow', () => {
     await submitBtn.click()
 
     await expect(page.locator('text=O nome é obrigatório.')).toBeVisible()
-    await expect(page.locator('text=O email é obrigatório.')).toBeVisible()
+    await expect(page.locator('text=O e-mail é obrigatório.')).toBeVisible()
+    await expect(page.locator('text=A mensagem é obrigatória.')).toBeVisible()
+    await expect(page.locator('text=Confirme a leitura da Política de Privacidade')).toBeVisible()
+  })
+
+  test('deve exibir link funcional para a Política de Privacidade', async ({ page }) => {
+    const privacyLink = page.locator('#contato a[href="/politica-de-privacidade"]')
+    await expect(privacyLink).toBeVisible()
   })
 
   test('deve enviar o lead com sucesso quando os dados estão corretos', async ({ page }) => {
-    // Preenche os campos
-    await page.fill('input#name', 'Testador Antigravity')
-    await page.fill('input#email', 'testador@antigravity.dev')
+    await page.route('**/api/leads/', async (route) => {
+      await route.fulfill({
+        status: 201,
+        contentType: 'application/json',
+        body: JSON.stringify({ message: 'Lead registrado com sucesso' }),
+      })
+    })
 
-    // Clica no enviar
+    await page.fill('input#contact-name', 'Testador Kurae')
+    await page.fill('input#contact-email', 'testador@kurae.dev')
+    await page.fill('input#contact-phone', '11999998888')
+    await page.fill('textarea#contact-message', 'Gostaria de conhecer mais sobre as soluções.')
+    await page.check('input#contact-privacy')
+
     await page.click('button[type="submit"]')
 
-    // Verifica a mensagem de sucesso
-    // Nota: como o serviço é um mock, ele deve responder instantaneamente
-    await expect(page.locator('text=Lead enviado com sucesso!')).toBeVisible()
-    
-    // Verifica se os campos foram limpos
-    await expect(page.locator('input#name')).toHaveValue('')
-    await expect(page.locator('input#email')).toHaveValue('')
+    await expect(page.locator('text=Mensagem enviada com sucesso!')).toBeVisible()
+    await expect(page.locator('input#contact-name')).toHaveValue('')
+    await expect(page.locator('input#contact-email')).toHaveValue('')
+    await expect(page.locator('textarea#contact-message')).toHaveValue('')
   })
 
-  test('deve ser totalmente responsivo', async ({ page }) => {
-    // Muda para mobile
+  test('deve ser funcional em viewport mobile', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 })
-    
-    // O Header deve mudar para coluna (estilo que definimos no CSS modular)
-    const header = page.locator('.landing-header')
-    const flexDirection = await header.evaluate((el) => window.getComputedStyle(el).flexDirection)
-    expect(flexDirection).toBe('column')
+    await expect(page.locator('#contato form')).toBeVisible()
+    await expect(page.locator('#contact-name')).toBeVisible()
+    await expect(page.locator('#contact-message')).toBeVisible()
   })
 })

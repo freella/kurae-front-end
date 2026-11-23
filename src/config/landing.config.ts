@@ -1,3 +1,35 @@
+export const CONTACT_FORM_CONFIG = {
+  /**
+   * Definir com o Comercial: manter `collectPhone: true` (opcional) ou desativar se não justificado.
+   */
+  collectPhone: true,
+  phoneRequired: false,
+  messageMinLength: 10,
+  messageMaxLength: 2000,
+  /**
+   * Cooldown no cliente após envio bem-sucedido (UX contra duplo envio;
+   * o limite efetivo é aplicado no servidor via rate limiting).
+   */
+  submitCooldownSeconds: 15,
+  /**
+   * Chave pública do Cloudflare Turnstile (nunca colocar secret key no front-end).
+   * Se vazia, o widget não é renderizado (útil em desenvolvimento local).
+   */
+  turnstileSiteKey: (import.meta.env.VITE_TURNSTILE_SITE_KEY as string | undefined)?.trim() || '',
+  /**
+   * Requisitos de privacidade (LGPD): ajustar texto e obrigatoriedade conforme revisão jurídica/PO.
+   * Não usar consentimento genérico como substituto da análise da base legal.
+   */
+  privacy: {
+    required: true,
+    policyPath: '/politica-de-privacidade',
+    policyVersion: '2026-01',
+    checkboxPrefix: 'Li e estou ciente da',
+    linkLabel: 'Política de Privacidade',
+    checkboxSuffix: 'para o tratamento dos dados informados neste contato comercial.',
+  },
+} as const
+
 export const LANDING_CONTENT = {
   brand: 'Kurae Solutions',
   faqs: [

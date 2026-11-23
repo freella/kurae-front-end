@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { LANDING_CONTENT } from '@/config/landing.config'
+import { RouterLink } from 'vue-router'
+import { CONTACT_FORM_CONFIG, LANDING_CONTENT } from '@/config/landing.config'
 import kuraeLogoFooter from '@/assets/logos/kurae/Kurae_Logo_V04.svg'
 </script>
 
@@ -17,6 +18,15 @@ import kuraeLogoFooter from '@/assets/logos/kurae/Kurae_Logo_V04.svg'
         class="h-11 w-auto"
       />
     </a>
+
+    <nav aria-label="Links legais" class="flex flex-wrap items-center justify-center gap-4">
+      <RouterLink
+        :to="CONTACT_FORM_CONFIG.privacy.policyPath"
+        class="text-ice/75 underline underline-offset-4 transition-colors hover:text-cyan-vibrant focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-neon"
+      >
+        Política de Privacidade
+      </RouterLink>
+    </nav>
 
     <p class="leading-relaxed text-ice/75">
       © 2026
